@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* COMPIT — Athletic Energy design system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Brand */
+    --background: 210 40% 98%;
+    --foreground: 215 60% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 60% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 60% 12%;
+
+    /* Deep navy */
+    --primary: 215 71% 14%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Lighter navy / steel */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 60% 12%;
+
+    --muted: 210 30% 94%;
+    --muted-foreground: 215 16% 42%;
+
+    /* Athletic orange */
+    --accent: 18 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 32 95% 54%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 71% 45%;
+
+    --border: 214 32% 88%;
+    --input: 214 32% 91%;
+    --ring: 18 100% 60%;
+
+    --radius: 0.875rem;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(215 71% 14%) 0%, hsl(210 60% 22%) 60%, hsl(18 100% 50%) 140%);
+    --gradient-accent: linear-gradient(135deg, hsl(18 100% 60%), hsl(32 95% 54%));
+    --gradient-mesh: radial-gradient(at 20% 0%, hsl(18 100% 60% / 0.18) 0px, transparent 50%),
+                     radial-gradient(at 80% 100%, hsl(210 70% 30% / 0.25) 0px, transparent 50%),
+                     radial-gradient(at 50% 50%, hsl(32 95% 54% / 0.10) 0px, transparent 50%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 99%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px hsl(215 60% 12% / 0.06);
+    --shadow-md: 0 4px 16px -4px hsl(215 60% 12% / 0.1);
+    --shadow-lg: 0 20px 40px -12px hsl(215 60% 12% / 0.18);
+    --shadow-glow: 0 8px 32px -8px hsl(18 100% 60% / 0.4);
+    --shadow-ring: 0 0 0 4px hsl(18 100% 60% / 0.15);
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-base: 220ms var(--ease-out-expo);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 30% 25%;
+    --sidebar-primary: 215 71% 14%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 215 60% 12%;
+    --sidebar-border: 214 32% 88%;
+    --sidebar-ring: 18 100% 60%;
+  }
+
+  .dark {
+    --background: 215 50% 7%;
+    --foreground: 210 40% 98%;
+    --card: 215 45% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 215 45% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 215 71% 14%;
+    --secondary: 215 30% 16%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 215 30% 14%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 18 100% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 30% 18%;
+    --input: 215 30% 18%;
+    --ring: 18 100% 60%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', system-ui, sans-serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: 'Sora', system-ui, sans-serif; }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  .bg-gradient-mesh { background: var(--gradient-mesh); }
+  .bg-gradient-card { background: var(--gradient-card); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-elevated { box-shadow: var(--shadow-lg); }
+  .text-balance { text-wrap: balance; }
+
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.6s var(--ease-out-expo) both; }
